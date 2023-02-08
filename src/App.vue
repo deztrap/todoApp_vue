@@ -1,19 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <input type="text" placeholder="Enter todo Item" v-model="inputTodo" />
+    <button @click="addTodo">Add</button>
+    <inputItem
+      v-for="(todo, index) in todos"
+      :key="index"
+      :todoItem="todo"
+      :todoItemIndex="index"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import InputItem from "./components/InputItem.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    InputItem,
+  },
+  data: function () {
+    return {
+      todos: [],
+      inputTodo: "",
+    };
+  },
+  methods: {
+    addTodo() {
+      this.todos.push(this.inputTodo);
+      this.inputTodo = "";
+    },
+  },
+};
 </script>
 
 <style>
