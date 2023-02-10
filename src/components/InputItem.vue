@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <p>{{ todoItem }}</p>
+  <div class="children">
+    <span>
+      {{ todoItem }}
+    </span>
+    <button @click="handleDelete">Delete</button>
+    <button>Update</button>
   </div>
 </template>
 <script>
@@ -15,9 +19,16 @@ export default {
     };
   },
   methods: {
-    // handleChange(event) {
-    //   //this.todoitem = event.target.value;
-    // },
+    handleDelete() {
+      this.$emit("deleteMe", this.todoItemIndex);
+    },
   },
 };
 </script>
+<style scoped>
+span {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: 40px;
+}
+</style>

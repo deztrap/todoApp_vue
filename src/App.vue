@@ -7,6 +7,7 @@
       :key="index"
       :todoItem="todo"
       :todoItemIndex="index"
+      @deleteMe="deleteTodo"
     />
   </div>
 </template>
@@ -30,6 +31,9 @@ export default {
       this.todos.push(this.inputTodo);
       this.inputTodo = "";
     },
+    deleteTodo(index) {
+      this.todos.splice(index, 1);
+    },
   },
 };
 </script>
@@ -39,7 +43,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+
   color: #2c3e50;
   margin-top: 60px;
 }
