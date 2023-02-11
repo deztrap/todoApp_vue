@@ -1,9 +1,7 @@
 <template>
   <div class="children">
     <div v-if="isUpdating">
-      <input type="text" :placeholder="todoItemName" v-model="newTodoValue" />
-      <button>Save</button>
-      <button>Cancel</button>
+      <update-item @cancel="handleCancel" />
     </div>
     <div v-else>
       <span>
@@ -15,7 +13,12 @@
   </div>
 </template>
 <script>
+import UpdateItem from "./UpdateItem.vue";
 export default {
+  name: "InputItem",
+  components: {
+    UpdateItem,
+  },
   props: {
     todoItem: String,
     todoItemIndex: Number,
@@ -32,6 +35,9 @@ export default {
     },
     handleUpdate() {
       this.isUpdating = true;
+    },
+    handleCancel() {
+      this.isUpdating = false;
     },
   },
 };
