@@ -8,6 +8,7 @@
       :todoItem="todo"
       :todoItemIndex="index"
       @deleteMe="deleteTodo"
+      @updateMe="updateTodo"
     />
   </div>
 </template>
@@ -33,6 +34,9 @@ export default {
     },
     deleteTodo(index) {
       this.todos.splice(index, 1);
+    },
+    updateTodo(name, index) {
+      this.todos.splice(index, 1, name);
     },
   },
 };
