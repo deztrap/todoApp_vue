@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" :placeholder="todoItemName" v-model="newTodoValue" />
+    <input type="text" placeholder="todoItemName" v-model="newTodoValue" />
     <button @click="handleSave">Save</button>
     <button @click="handleCancel">Cancel</button>
   </div>

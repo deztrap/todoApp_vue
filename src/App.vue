@@ -35,7 +35,7 @@ export default {
     deleteTodo(index) {
       this.todos.splice(index, 1);
     },
-    updateTodo(name, index) {
+    updateTodo(index, name) {
       this.todos.splice(index, 1, name);
     },
   },
