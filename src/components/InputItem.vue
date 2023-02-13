@@ -1,7 +1,7 @@
 <template>
   <div class="children">
     <div v-if="isUpdating">
-      <update-item @cancel="handleCancel" />
+      <update-item @cancel="handleCancel" @save="handleSave" />
     </div>
     <div v-else>
       <span>
@@ -37,6 +37,10 @@ export default {
       this.isUpdating = true;
     },
     handleCancel() {
+      this.isUpdating = false;
+    },
+    handleSave(itemvalue) {
+      this.$emit("updateMe", this.todoItemIndex, itemvalue);
       this.isUpdating = false;
     },
   },
